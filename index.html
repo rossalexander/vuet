@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Vuet</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
 
 
 <div id="root">
-    <h1>All tasks</h1>
-    <ul>
-        <li v-for="task in tasks" v-text="task.description"></li>
+    <h1>Todo</h1>
+    <ul style="list-style-type:none;">
+        <li v-for="task in incompleteTasks">
+            <input type="checkbox" :value="task.completed" v-model="task.completed">
+            {{task.description}}
+        </li>
     </ul>
 
-    <h1>Incomplete tasks</h1>
+    <h1>Done</h1>
     <ul>
-        <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        <li v-for="task in completedTasks" v-text="task.description"></li>
     </ul>
 </div>
 
@@ -29,16 +37,19 @@
         data: {
             tasks: [
                 {description: 'Go to the store', completed: false},
-                {description: 'Go to the bank', completed: true},
+                {description: 'Go to the bank', completed: false},
                 {description: 'Go to the park', completed: false},
                 {description: 'Go to the chimney', completed: false},
-                {description: 'Go to the blood test center.', completed: true},
+                {description: 'Go to the blood test center.', completed: false},
             ]
         },
 
         computed: {
             incompleteTasks() {
                 return this.tasks.filter(task => !task.completed);
+            },
+            completedTasks() {
+                return this.tasks.filter(task => task.completed);
             }
         },
 
