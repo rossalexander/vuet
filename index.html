@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Vuet</title>
-
-    <style>
-        .is-loading {
-            color: red;
-        }
-    </style>
 </head>
 <body>
 
 
 <div id="root">
-    <button @click="toggleClass" :disabled="isDisabled" :class="{'is-loading': isLoading}">Click me</button>
+    <h1>All tasks</h1>
+    <ul>
+        <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <h1>Incomplete tasks</h1>
+    <ul>
+        <li v-for="task in incompleteTasks" v-text="task.description"></li>
+    </ul>
 </div>
 
 
@@ -23,17 +25,25 @@
 
     new Vue({
         el: '#root',
+
         data: {
-            isLoading: false,
-            isDisabled: false
+            tasks: [
+                {description: 'Go to the store', completed: false},
+                {description: 'Go to the bank', completed: true},
+                {description: 'Go to the park', completed: false},
+                {description: 'Go to the chimney', completed: false},
+                {description: 'Go to the blood test center.', completed: true},
+            ]
         },
 
-        methods: {
-            toggleClass() {
-                this.isLoading = true;
-                this.isDisabled = true;
+        computed: {
+            incompleteTasks() {
+                return this.tasks.filter(task => !task.completed);
             }
-        }
+        },
+
+        methods: {},
+
     });
 </script>
 </body>
