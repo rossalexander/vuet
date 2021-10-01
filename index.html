@@ -8,8 +8,14 @@
 
 
 <div id="root">
-    <input type="text" id="input" v-model="message">
-    <p>The value of the input is: {{ message }}.</p>
+
+    <input type="text" v-model="newName">
+    <button @click="addName">Add name</button>
+
+    <ul>
+        <li v-for="name in names" v-text="name"></li>
+    </ul>
+
 </div>
 
 
@@ -19,7 +25,15 @@
     new Vue({
         el: '#root',
         data: {
-            message: 'Hello World',
+            names: ['Joe', 'Mary', 'Ted', 'Mike'],
+            newName: ''
+        },
+
+        methods: {
+            addName() {
+                this.names.push(this.newName);
+                this.newName = '';
+            }
         }
     });
 </script>
