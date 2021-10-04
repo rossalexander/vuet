@@ -13,49 +13,13 @@
 
 
 <div id="root">
-    <h1>Todo</h1>
-    <ul style="list-style-type:none;">
-        <li v-for="task in incompleteTasks">
-            <input type="checkbox" :value="task.completed" v-model="task.completed">
-            {{task.description}}
-        </li>
-    </ul>
-
-    <h1>Done</h1>
-    <ul>
-        <li v-for="task in completedTasks" v-text="task.description"></li>
-    </ul>
+    <task>Go to the store</task>
+    <task>Go to the bank</task>
+    <task>Go to work</task>
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.1.3/dist/vue.js"></script>
-<script>
-
-    new Vue({
-        el: '#root',
-
-        data: {
-            tasks: [
-                {description: 'Go to the store', completed: false},
-                {description: 'Go to the bank', completed: false},
-                {description: 'Go to the park', completed: false},
-                {description: 'Go to the chimney', completed: false},
-                {description: 'Go to the blood test center.', completed: false},
-            ]
-        },
-
-        computed: {
-            incompleteTasks() {
-                return this.tasks.filter(task => !task.completed);
-            },
-            completedTasks() {
-                return this.tasks.filter(task => task.completed);
-            }
-        },
-
-        methods: {},
-
-    });
-</script>
+<script src="main.js"></script>
 </body>
 </html>
