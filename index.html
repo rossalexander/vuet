@@ -16,13 +16,17 @@
 
 
 <div id="root" class="container">
-    <modal v-show="showModal" @close="showModal = false">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex laboriosam provident quas quod similique.
-            Dolore, ipsum nemo, neque nobis officiis ratione, sed sequi similique soluta tenetur vel veniam veritatis
-            vitae!
-        </p>
-    </modal>
-    <button @click="showModal = true">Show Modal</button>
+    <tabs>
+        <tab name="About us" :selected="true">
+            <p>All about us</p>
+        </tab>
+        <tab name="Jobs">
+            <p>Get a job</p>
+        </tab>
+        <tab name="Work">
+            <p>This is our work</p>
+        </tab>
+    </tabs>
 </div>
 
 
