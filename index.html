@@ -8,14 +8,21 @@
             font-family: sans-serif;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+          integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 
 
 <div id="root" class="container">
-    <message title="Hello World" body="Lorem ipsum dolor sit amet."></message>
-    <message title="Hello Universe" body="Lorem ipsum dolor sit amet."></message>
+    <modal v-show="showModal" @close="showModal = false">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex laboriosam provident quas quod similique.
+            Dolore, ipsum nemo, neque nobis officiis ratione, sed sequi similique soluta tenetur vel veniam veritatis
+            vitae!
+        </p>
+    </modal>
+    <button @click="showModal = true">Show Modal</button>
 </div>
 
 
