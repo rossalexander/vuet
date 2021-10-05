@@ -16,17 +16,9 @@
 
 
 <div id="root" class="container">
-    <tabs>
-        <tab name="About us" :selected="true">
-            <p>All about us</p>
-        </tab>
-        <tab name="Jobs">
-            <p>Get a job</p>
-        </tab>
-        <tab name="Work">
-            <p>This is our work</p>
-        </tab>
-    </tabs>
+    <coupon v-on:applied="onCouponApplied"></coupon>
+
+    <h1 v-show="couponApplied">You used a coupon!</h1>
 </div>
 
 
